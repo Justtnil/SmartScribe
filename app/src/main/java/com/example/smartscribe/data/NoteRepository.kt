@@ -17,6 +17,10 @@ class NoteRepository(private val noteDao: NoteDao) {
         )
         return noteDao.insertNote(note)
     }
+    // In NoteRepository.kt
+    suspend fun getNoteById(id: Long): Note? {
+        return noteDao.getNoteById(id)
+    }
 
     suspend fun updateNote(note: Note) {
         noteDao.updateNote(note.copy(updatedAt = Date()))
